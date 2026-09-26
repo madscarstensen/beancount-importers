@@ -11,7 +11,6 @@ from beancount_importers.bank_classifier import payee_to_account_mapping
 from decimal import Decimal
 
 UNCATEGORIZED_EXPENSES_ACCOUNT = "Expenses:FIXME"
-INCOME_ACCOUNT = "Income:FIXME"
 
 PAYEE_TO_ACCOUNT = {
     "Netto": "Expenses:Groceries",
@@ -72,7 +71,7 @@ def categorizer(txn, row):
             UNCATEGORIZED_EXPENSES_ACCOUNT,
         )
     else:
-        posting_account = INCOME_ACCOUNT
+        posting_account = UNCATEGORIZED_EXPENSES_ACCOUNT
 
     txn.postings.append(
         data.Posting(posting_account, -bank_units, None, None, None, None))
