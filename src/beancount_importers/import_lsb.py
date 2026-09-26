@@ -10,8 +10,8 @@ from beangulp.importers.csv import Col
 from beancount_importers.bank_classifier import payee_to_account_mapping
 from decimal import Decimal
 
-UNCATEGORIZED_EXPENSES_ACCOUNT = "Expenses:Uncategorized"
-INCOME_ACCOUNT = "Income:Uncategorized"
+UNCATEGORIZED_EXPENSES_ACCOUNT = "Expenses:FIXME"
+INCOME_ACCOUNT = "Income:FIXME"
 
 PAYEE_TO_ACCOUNT = {
     "Netto": "Expenses:Groceries",
