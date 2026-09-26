@@ -40,6 +40,12 @@ PAYEE_TO_ACCOUNT = {
     "Skattestyrelsen": "Expenses:Taxes",
 }
 
+def identify(self, filepath):
+    import re
+    with open(filepath, encoding="utf-8-sig") as f:
+        head = f.read(200)
+    # our rows look like: 25-09-2026;...;DKK
+    return bool(re.match(r"\d{2}-\d{2}-\d{4};", head))
 
 def parse_dk_amount(s: str) -> Decimal:
     """'2.050,45' -> Decimal('2050.45'); '-1.388,02' -> Decimal('-1388.02')."""
